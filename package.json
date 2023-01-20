@@ -1,0 +1,24 @@
+{
+  "name": "mfs",
+  "version": "1.0.0",
+  "description": "Boilerplate structure to help you work end-to-end, with Typescript. It's kinda \"full-stack\" as in a single project you have the BE code as well as the FE code, and you're concerned with managing the both.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo run dev --no-cache",
+    "build": "turbo run build",
+    "prepare": "husky install",
+    "lint": "turbo lint",
+    "format": "turbo format"
+  },
+  "keywords": [],
+  "author": "Aftab Alam",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^2.8.3",
+    "rimraf": "^4.1.1"
+  }
+}
