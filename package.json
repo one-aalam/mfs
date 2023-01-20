@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Boilerplate structure to help you work end-to-end, with Typescript. It's kinda \"full-stack\" as in a single project you have the BE code as well as the FE code, and you're concerned with managing the both.",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "dev": "turbo run dev --no-cache",
     "build": "turbo run build",
@@ -18,6 +19,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "husky": "^8.0.3",
     "prettier": "^2.8.3",
     "rimraf": "^4.1.1"
   }
