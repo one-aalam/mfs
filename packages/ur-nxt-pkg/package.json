@@ -13,10 +13,12 @@
     "scripts": {
         "dev": "tsc -w",
         "build": "tsc",
-        "lint": "TIMING=1 eslint src --fix",
+        "lint": "TIMING=1 eslint",
         "clean": "rimraf .turbo && rimraf node_modules && rimraf dist"
     },
     "devDependencies": {
+        "eslint-config-custom": "*",
+       "tsconfig": "*",
       "typescript": "^4.2.4"
     }
 }
