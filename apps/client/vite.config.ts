@@ -14,5 +14,10 @@ export default defineConfig({
         include: [
             "config"
         ]
-    }
+    },
+    build: {
+        commonjsOptions: {
+          include: [/config/, /node_modules/],
+        },
+    },
 })
