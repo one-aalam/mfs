@@ -13,7 +13,7 @@ const trpc = createTRPCProxyClient<AppRouter>({
 
 
 async function getServerData() {
-  const received = await trpc.getInitialState.query()
+  const received = await trpc.counter.getInitialState.query()
   return received;
 }
 

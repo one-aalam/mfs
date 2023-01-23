@@ -12,16 +12,21 @@ const SERVER_PORT = process.env.SERVER_PORT;
 // tRPC: Initialize
 const t = initTRPC.create()
 
+const router = t.router
+const procedure = t.procedure
+
 // tRPC(and now Express app's): Handlers
-const getInitialState = t.procedure.query(() => {
+const getInitialState = procedure.query(() => {
     log(`received from config: ${INITIAL_STATE}`);
     return INITIAL_STATE
 })
 
 // tRPC(and now Express app's): Main Router
 
-const appRouter = t.router({
-    getInitialState
+const appRouter = router({
+    counter: router({
+        getInitialState,
+    })
 })
 
 // tRPC: Export the type, as this is heart of the tRPC system
