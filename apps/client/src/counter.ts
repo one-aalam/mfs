@@ -1,8 +1,19 @@
 import { INITIAL_STATE, log } from 'config';
+import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
+import type { AppRouter } from 'server';
+
+// Add the client
+const trpc = createTRPCProxyClient<AppRouter>({
+    links: [
+        httpBatchLink({
+            url: `${import.meta.env.VITE_API_URL}/trpc`
+        })
+    ]
+})
+
 
 async function getServerData() {
-  const resp = await fetch(import.meta.env.VITE_API_URL);
-  const received = await resp.json();
+  const received = await trpc.getInitialState.query()
   return received;
 }
 
@@ -14,7 +25,7 @@ export function setupCounter(element: HTMLButtonElement) {
   element.disabled = true;
 
   getServerData().then((resp) => {
-    setCounter(parseInt(resp));
+    setCounter(resp);
     element.disabled = false;
   });
 
